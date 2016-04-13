@@ -1,10 +1,12 @@
 
 public class Location {
 	private String notatedLoc;
+	private Piece piece;
 	private int xLoc;
 	private int yLoc;
 	
-	public Location(int x, int y) {
+	public Location(Piece p, int x, int y) {
+		piece = p;
 		xLoc = x;
 		yLoc = y;
 		notatedLoc = procCoords(x,y);
@@ -28,6 +30,10 @@ public class Location {
 	
 	public int getY() {
 		return yLoc;
+	}
+	
+	public Piece getPiece() {
+		return piece;
 	}
 	
 }
