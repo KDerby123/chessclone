@@ -1,6 +1,6 @@
 
 public class Board {
-	private Square[][] board;
+	private Location[][] board;
 	private Player white;
 	private Player black;
 	
