@@ -1,6 +1,6 @@
 
 public class Board {
-	private Location[][] board;
+	private Location[][] board; //A board of Locations; 8x8 with the first [] detailing the number(y) axis, and the second [] the letter(x) axis
 	private Player white;
 	private Player black;
 	
@@ -13,13 +13,31 @@ public class Board {
 	
 	public void boardInit() {
 		String color;
-		for (int i = 0;i<8;i++) {
-			for (int k = 0;k<8;k++) {
+		Piece piece;
+		for (int i = 0;i<8;i++) { //y axis
+			for (int k = 0;k<8;k++) { //x axis
 				if (i<2)
 					color = "white";
-				if (i>7)
-					color = "black"; 
-				board[i][k] = new Square();
+				if (i>=6)
+					color = "black";
+				else
+					color = null;
+				if ((i == 0) || (i == 7)) 
+					if ((k == 0) || (k == 7))
+						piece = new Rook(color,i,k);
+					else if ((k==1) || (k==6))
+						piece = new Knight(color,i,k);
+					else if ((k==2) || (k==5))
+						piece = new Bishop(color,i,k);
+					else if (k == 3)
+						piece = new King(color,i,k);
+					else if (k == 4)
+						piece = new Queen(color,i,k);
+				if ((i == 1) || (i == 6))
+					piece = new Pawn(color,i,k);
+				else
+					piece = null;
+			super.addToBoard(new Location(i,k,piece),i,k);
 			}
 		}
 	}
