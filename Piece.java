@@ -12,7 +12,7 @@ public abstract class Piece{
                 notatLoc = Location.procCoords(x,y);
 	}
 	
-        public abstract boolean testMove(String move); //tests whether the move imported is a valid move
+        public abstract boolean testMove(Board b, int x, int y); //tests whether the move imported is a valid move
 
         public boolean notSameColor(Location l) { //Tests whether the piece at the Location is of the same color, returns true if not
                 return ((l.getPiece() == null) || (!l.getPiece().getColor().equals(getColor())));
