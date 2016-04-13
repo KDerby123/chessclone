@@ -41,4 +41,8 @@ public class Board {
 			}
 		}
 	}
+	
+	public Location getLocAt(int x, int y) {
+		return board[x][y];
+	}
 }
