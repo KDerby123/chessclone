@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 public abstract class Piece{
         private String color;
         private String notatLoc;
