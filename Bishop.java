@@ -7,9 +7,10 @@ public class Bishop extends Piece {
 	
      public boolean testMove(Board b, int x, int y) { //Moves diagonally and vertically
         Location l = b.getLocAt(x,y);
-        if (!super.notSameColor(l))
-           return false;
         Piece p = l.getPiece();
+        if (!super.notSameColor(p))
+           return false;
+       
            
     }
 }
