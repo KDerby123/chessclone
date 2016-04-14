@@ -14,8 +14,8 @@ public class Board {
 	public void boardInit() {
 		String color;
 		Piece piece;
-		for (int i = 0;i<8;i++) { //y axis
-			for (int k = 0;k<8;k++) { //x axis
+		for (int i = 0;i<8;i++) { //"number"(y) axis
+			for (int k = 0;k<8;k++) { //"letter"(x) axis
 				if (i<2)
 					color = "white";
 				if (i>=6)
@@ -42,7 +42,7 @@ public class Board {
 		}
 	}
 	
-	public Location getLocAt(int x, int y) {
-		return board[x][y];
+	public Location getLocAt(int num, int letter) { //access a location on the board using notation
+		return board[num][letter];
 	}
 }
