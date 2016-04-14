@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 public class King extends Piece {
 	
     	public King(String color, int num, int letter) {
