@@ -17,4 +17,8 @@ public class King extends Piece {
 		//code 
 		return false;
 	}
+	
+	public boolean checkMate() {
+		
+	}
 }
