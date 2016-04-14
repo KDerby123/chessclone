@@ -9,7 +9,7 @@ public class King extends Piece {
     	return false //Kings can't be impeded
     }
 	
-    public boolean testMove(Board board, int num, int letter) { //I will do this one - Kika
+    public boolean testMove(Board board, int num, int letter) { //Tests whether the move is in a 1 square radius and a valid move.
         Location l = b.getLocAt(num,letter);
         Piece p = l.getPiece();
         if (!super.notSameColor(p))
