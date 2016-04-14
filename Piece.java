@@ -28,12 +28,12 @@ public abstract class Piece{
                 return notatLoc;
         }
         
-        public int getX() {
-                return xLoc;
+        public int getNum() {
+                return numLoc;
         }
        
-        public int getY() {
-                return yLoc;
+        public int getLetter() {
+                return letterLoc;
         }
 	
 	
