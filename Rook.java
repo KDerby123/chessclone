@@ -1,12 +1,16 @@
 
 public class Rook extends Piece {
 
-    public Rook(String c,int x,int y) {
-	super(c,x,y);
+    public Rook(String color,int num,int letter) {
+	super(color,num,letter);
+    }
+    
+    public boolean impededCheck(Board board, int num, int letter) { //skeleton
+    	
     }
 	
-    public boolean testMove(Board b, int x, int y) { //Moves horizontally and vertically
-        Location l = b.getLocAt(x,y);
+    public boolean testMove(Board board, int num, int letter) { //Moves horizontally and vertically
+        Location l = b.getLocAt(num,letter);
         Piece p = l.getPiece();
         if (!super.notSameColor(p))
            return false;
