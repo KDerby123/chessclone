@@ -17,3 +17,5 @@ Rook: A rook moves horizontally both ways.
 Queen: A queen moves diagonally both ways and horizontally both ways.
 
 Please note that the instance of Check will be tested seprately, so you do not need to worry about that. You only need to test on whether the piece can reach its destination without impedence. 
+
+Also, we need to decide when we are doing our "open lab" time.
