@@ -14,30 +14,30 @@ public class Board {
 	public void boardInit() {
 		String color;
 		Piece piece;
-		for (int i = 0;i<8;i++) { //"number"(y) axis
-			for (int k = 0;k<8;k++) { //"letter"(x) axis
-				if (i<2)
+		for (int num = 0;num<8;num++) { //"number"(y) axis
+			for (int letter = 0;letter<8;letter++) { //"letter"(x) axis
+				if (num<2)
 					color = "white";
-				if (i>=6)
+				if (num>=6)
 					color = "black";
 				else
 					color = null;
-				if ((i == 0) || (i == 7)) 
-					if ((k == 0) || (k == 7))
-						piece = new Rook(color,i,k);
-					else if ((k==1) || (k==6))
-						piece = new Knight(color,i,k);
-					else if ((k==2) || (k==5))
-						piece = new Bishop(color,i,k);
-					else if (k == 3)
-						piece = new King(color,i,k);
-					else if (k == 4)
-						piece = new Queen(color,i,k);
-				if ((i == 1) || (i == 6))
-					piece = new Pawn(color,i,k);
+				if ((num == 0) || (num == 7)) 
+					if ((letter == 0) || (letter == 7))
+						piece = new Rook(color,num,letter);
+					else if ((letter==1) || (letter==6))
+						piece = new Knight(color,num,letter);
+					else if ((letter==2) || (letter==5))
+						piece = new Bishop(color,num,letter);
+					else if (letter == 3)
+						piece = new King(color,num,letter);
+					else if (letter == 4)
+						piece = new Queen(color,num,letter);
+				if ((num == 1) || (num == 6))
+					piece = new Pawn(color,num,letter);
 				else
 					piece = null;
-			super.addToBoard(new Location(i,k,piece),i,k);
+			super.addToBoard(new Location(piece,num,letter),num,letter);
 			}
 		}
 	}
