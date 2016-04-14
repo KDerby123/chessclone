@@ -12,12 +12,12 @@ public class Location {
 		notatedLoc = procCoords(x,y);
 	}
 	
-	public static String procCoords(int x, int y) {
+	public static String procCoords(int num, int letter) { //returns the location in terms of notation
 		String a = "";
 		char b = 'a';
-		b += x;
+		b += letter;
 		a += b;
-		return a + y;
+		return a + (num+1);
 	}
 	
 	public String getNotation() {
