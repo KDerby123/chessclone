@@ -8,7 +8,7 @@ public class Pawn extends Piece {
 	}
 	
 	public boolean impededCheck(Board board,int num, int letter) { //implemented abstract method from Piece; returns true if Pawn is
-		return (board.getLocAt(num-1,letter).getPiece() != null) //impeded on it's path to the square
+		return (!board.isEmpty(num-1,letter)) //impeded on it's path to the square
 	}
 	
 	public boolean testMove(Board board, int num, int letter) { //I'll do this, as it has a weird move scheme
