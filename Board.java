@@ -1,18 +1,34 @@
 
 public class Board {
-	private Location[][] board; //A board of Locations; 8x8 with the first [] detailing the number(y) axis, and the second [] the letter(x) axis
+	private final Location[][] BOARD; //A board of Locations; 8x8 with the first [] detailing the number(y) axis, and the second [] the letter(x) axis
+	private final int LEFT_BOUND;
+	private final int RIGHT_BOUND;
+	private final int UP_BOUND;
+	private final int DOWN_BOUND;
 	private Player white;
 	private Player black;
 	
 	public Board(Player w, Player b) {
-		board = new Location[8][8];
+		BOARD = new Location[8][8];
+		LEFT_BOUND = 0;
+		RIGHT_BOUND = BOARD.length;
+		UP_BOUND = 0;
+		DOWN_BOUND = BOARD[0].length;
 		white = w;
 		black = b;
 		boardInit();
 	}
 	
+	private void addToBoard(Location loc, int num, int letter) {
+		BOARD[num][letter] = loc;
+	}
+	
 	pubilc boolean isEmpty(int num, int letter) {
-		return board[num][letter].getPiece() == null;
+		return BOARD[num][letter].getPiece() == null;
+	}
+	
+	private static boolean isValid(int num, int letter) {
+		return num <= RIGHT_BOUND && letter <= DOWN_BOUND && num >= LEFT_BOUND && letter >= UP_BOUND;
 	}
 	
 	public void boardInit() {
@@ -41,12 +57,12 @@ public class Board {
 					piece = new Pawn(color,num,letter);
 				else
 					piece = null;
-			super.addToBoard(new Location(piece,num,letter),num,letter);
+			addToBoard(new Location(piece,num,letter),num,letter);
 			}
 		}
 	}
 	
 	public Location getLocAt(int num, int letter) { //access a location on the board using notation
-		return board[num][letter];
+		return BOARD[num][letter];
 	}
 }
