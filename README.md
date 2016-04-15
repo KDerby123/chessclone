@@ -16,4 +16,4 @@ Also, we need to decide when we are doing our "open lab" time.
 
 # List of possible open lab times:  
 
-KD - I'll be able to be here for all of the other 3 open lab days, but not 4/15.
+KD - I'll be able to be here for all of the other 3 open lab days, but not 4/15(today).
