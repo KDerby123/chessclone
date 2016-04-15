@@ -8,14 +8,28 @@ public class Bishop extends Piece {
 	@Override
      public boolean impededCheck(Board board, int num, int letter) { //skeleton
      int n, l;
-    	for (n = num, l = letter; n <= 7 && l <= 7 && n >=0 && l >= 0)
-    	
-    	
-    	
+    	for (n = num + 1, l = letter + 1; isValid(n, l); n++, l++) {
+    		if(!board.isEmpty())
+    			return false;
+    	}
+    	for (n = num - 1, l = letter + 1; isValid(n, l); n--, l++) {
+    		if(!board.isEmpty())
+    			return false;
+    	}
+       for (n = num - 1, l = letter - 1; isValid(n, l); n--, l--) {
+    		if(!board.isEmpty())
+    			return false;
+    	}
+     for (n = num + 1, l = letter - 1; isValid(n, l); n++, l--) {
+    		if(!board.isEmpty())
+    			return false;
+    	}
     	return false;
      }
      
-     private boolean is
+     	private static boolean isValid(int num, int letter) {
+		return num <= 7 && letter <= 7 && num >=0 && letter >= 0;
+	}
      
      @Override
      public boolean testMove(Board board, int num, int letter) { //Moves diagonally and vertically
@@ -24,6 +38,7 @@ public class Bishop extends Piece {
         if (!super.notSameColor(p))
            return false;
        
+
            
     }
 }
