@@ -5,12 +5,6 @@ public class Bishop extends Piece {
         	super(color,num,letter);
      	}
 	
-	private int genInc(int n1, n2) {
-		if (n1 > n2)
-			return -1;
-		return 1;
-	}
-	
 	@Override
      	public boolean impededCheck(Board board, int num, int letter) { //skeleton
      		int selNum = super.getNum();
