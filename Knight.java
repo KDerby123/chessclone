@@ -15,7 +15,8 @@ public class Knight {
         Piece p = l.getPiece();
         if (!super.notSameColor(p))
            return false;
-        
-           
+        int numTest = Math.abs(super.getNum()-num);
+        int letterTest = Math.abs(super.getLetter()-letter);
+        return (((numTest == 1) && (letterTest == 2)) || ((numTest == 2) && (letterTest == 1))); 
     }
 }
