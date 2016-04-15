@@ -19,6 +19,14 @@ public abstract class Piece{
         public boolean notSameColor(Location l) { //Tests whether the piece at the Location is of the same color, returns true if not
                 return ((l.getPiece() == null) || (!l.getPiece().getColor().equals(color)));
         }
+        
+        public static int genInc(int n1, n2) {
+		if (n1 > n2)
+			return -1;
+		if (n1 == n2)
+			return 0;
+		return 1;
+	}
 
         public String getColor() {
                 return color;
