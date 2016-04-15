@@ -5,20 +5,11 @@ public class Queen extends Piece {
 		super(color,num,letter);
     	}
 	
-	private int genInc(int n1, int n2) { //generates an increment  based on the relationship of the two ints
-		if (n1 > n2) 
-    			numInc = -1; 
-    		else if (n1 < n2)
-    			numInc = 1;
-    		else
-    			numInc = 0;
-	}
-	    
 	public boolean impededCheck(Board board, int num, int letter) {
 		int selNum = super.getNum();
 		int selLetter = super.getLetter();
-		int numInc = genInc(selNum,num);
-		int letterInc = genInc(selLetter,letter);
+		int numInc = Piece.genInc(selNum,num);
+		int letterInc = Piece.genInc(selLetter,letter);
     		while ((selNum != num) || (selLetter != letter)) {
     			if (!board.isEmpty(selNum,selLetter)
     				return true;
