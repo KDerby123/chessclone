@@ -7,10 +7,15 @@ public class Bishop extends Piece {
 	
 	@Override
      public boolean impededCheck(Board board, int num, int letter) { //skeleton
+     int n, l;
+    	for (n = num, l = letter; n <= 7 && l <= 7 && n >=0 && l >= 0)
     	
     	
     	
+    	return false;
      }
+     
+     private boolean is
      
      @Override
      public boolean testMove(Board board, int num, int letter) { //Moves diagonally and vertically
