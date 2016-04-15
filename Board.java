@@ -5,10 +5,14 @@ public class Board {
 	private Player black;
 	
 	public Board(Player w, Player b) {
-		board = new Square[8][8];
+		board = new Location[8][8];
 		white = w;
 		black = b;
 		boardInit();
+	}
+	
+	pubilc boolean isEmpty(int num, int letter) {
+		return board[num][letter].getPiece() == null;
 	}
 	
 	public void boardInit() {
