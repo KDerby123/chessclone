@@ -2,15 +2,17 @@
 public class Pawn extends Piece {
 	public boolean hasMoved;
 	
-	public Pawn(String c) {
-		super(c);
+	public Pawn(Color color, Coordinate coord) {
+		super(color, coord);
 		hasMoved = false;
 	}
 	
+	@Override
 	public boolean impededCheck(Board board,int num, int letter) { //implemented abstract method from Piece; returns true if Pawn is
 		return (!board.isEmpty(num-1,letter)) //impeded on it's path to the square
 	}
 	
+	@Override
 	public boolean testMove(Board board, int num, int letter) { //I'll do this, as it has a weird move scheme
 	        Location l = board.getLocAt(num,letter) ;
 	        Piece p = l.getPiece();

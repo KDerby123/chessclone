@@ -1,26 +1,66 @@
-public abstract class Piece{
-        private String color;
-        private String notatLoc;
-	private int numLoc;
-        private int letterLoc;
-	
-	
-	public Piece(String c, int num, int letter) {
-		numLoc = x;
-                letterLoc = y;
-                color = c;
-                notatLoc = Location.procCoords(x,y);
-	}
-	
-	public abstract boolean impededCheck(Board b, int num, int letter); //this checks if the move provided is impeded; used with
-	//testMove() method
-        public abstract boolean testMove(Board b, int num, int letter); //tests whether the move imported is a valid move
+public abstract class Piece {
 
-        public boolean notSameColor(Location l) { //Tests whether the piece at the Location is of the same color, returns true if not
-                return ((l.getPiece() == null) || (!l.getPiece().getColor().equals(color)));
-        }
-        
-        public static int genInc(int n1, n2) {
+	private Color color;
+	private Coordinate coord;
+
+	public Piece(Color color, int num, int letter) {
+		this.coord = new Coordinate(num, letter);
+		this.color = color;
+	}
+
+	public Piece(Color color, Coordinate coord) {
+		this.color = color;
+		this.coord = coord;
+	}
+
+	/**
+	 * Constructs a Piece object
+	 * 
+	 * @param color
+	 *            the Color (White or Black)
+	 * @param notation
+	 *            the notation of the coordinate (ie a4 or d8)
+	 */
+	public Piece(Color color, String notation) {
+		this.color = color;
+		this.coord = Coordinate.decode(notation);
+	}
+
+	/**
+	 * Checks if move is impeded by other peices
+	 * 
+	 * @param Board
+	 *            b board of move
+	 * @param Coordinate
+	 *            the coordinate of the move
+	 * @return true if move is impeded, false otherwise
+	 * */
+	protected abstract boolean isImpeded(Board b, Coordinate move);
+
+	/**
+	 * Checks if move is valid. SHOULD USE isImpeded(Board, Coordinate)
+	 * 
+	 * @param Board
+	 *            b board of move
+	 * @param Coordinate
+	 *            the coordinate of the move
+	 */
+	protected abstract boolean testMove(Board b, Coordinate move);
+
+	/**
+	 * Checks if opponent piece is at location (is of other color)
+	 * 
+	 * @param loc
+	 *            the Location of the piece
+	 */
+	public boolean isSameColor(Location loc) {
+		if (loc.getPiece() == null)
+			return false;
+		return !(loc.getPiece().getColor().equals(this.color));
+	}
+
+	
+	public static int genInc(int n1, int n2) {
 		if (n1 > n2)
 			return -1;
 		if (n1 == n2)
@@ -28,23 +68,20 @@ public abstract class Piece{
 		return 1;
 	}
 
-        public String getColor() {
-                return color;
-        }
-        
-        public String getNotatLoc() {
-                return notatLoc;
-        }
-        
-        public int getNum() {
-                return numLoc;
-        }
-       
-        public int getLetter() {
-                return letterLoc;
-        }
-	
-	
-	
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
+	public Coordinate getCoord() {
+		return coord;
+	}
+
+	public void setCoord(Coordinate coord) {
+		this.coord = coord;
+	}
 
 }
