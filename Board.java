@@ -39,8 +39,9 @@ public class Board {
 	
 	public void boardInit() {
 		Color color;
+		Color squareColor;
 		Piece piece;
-		Coordinate coord
+		Coordinate coord;
 		for (int num = 0;num<8;num++) { //"number"(y) axis
 			for (int letter = 0;letter<8;letter++) { //"letter"(x) axis
 				coord = new Coordinate(num,letter);
@@ -68,7 +69,11 @@ public class Board {
 						white.addPiece(piece);
 					else
 						black.addPiece(piece);
-			addToBoard(new Location(piece,coord),num,letter);
+			if (num % 2 == letter % 2)
+				squareColor = "WHITE";
+			else
+				squareColor = "BLACK";
+			addToBoard(new Location(piece,coord,squareColor),num,letter);
 			}
 		}
 	}
