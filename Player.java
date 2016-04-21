@@ -1,7 +1,8 @@
 import java.util.ArrayList;
-public abstract class Player {
+public class Player {
 	private ArrayList<Piece> pieces;
 	private ArrayList<String> moves;
+	private Color color;
 	
 	public abstract void makeMove();
 	
@@ -27,5 +28,9 @@ public abstract class Player {
 		for (int i = 0;i<pieces.size();i++)
 			if (p == piece)
 				pieces.remove(i);
+	}
+	
+	public void setColor(Color color) {
+		this.color = color;
 	}
 }
