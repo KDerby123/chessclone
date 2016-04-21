@@ -1,13 +1,15 @@
 //Moves diagonally, vertically, and horizontally
 public class Queen extends Piece {
 
-	public Queen(String color,int num, int letter) {
-		super(color,num,letter);
+	public Queen(Color color,Coordinate coord) {
+		super(color,coord);
     	}
 	
-	public boolean impededCheck(Board board, int num, int letter) {
+	public boolean impededCheck(Board board,Coordinate coord) {
 		int selNum = super.getNum();
 		int selLetter = super.getLetter();
+		int num = coord.getNum();
+		int letter = coord.getLetter();
 		int numInc = Piece.genInc(selNum,num);
 		int letterInc = Piece.genInc(selLetter,letter);
     		while ((selNum != num) || (selLetter != letter)) {
@@ -19,9 +21,11 @@ public class Queen extends Piece {
     		return false;
     	}
 	
-	public boolean testMove(Board board, int num, int letter) { //takes in a Board, a x value, and a y checks if the move is valid
-        	Location loc = board.getLocAt(num,letter);
+	public boolean testMove(Board board, Coordinate coord) { //takes in a Board, a x value, and a y checks if the move is valid
+        	Location loc = board.getLocAt(coord);
         	Piece p = loc.getPiece(); //
+        	int num = coord.getNum();
+        	int letter = coord.getLetter();
         	double slope;
         	if (!super.notSameColor(p))
         		return false;
