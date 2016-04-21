@@ -2,6 +2,7 @@ public class Location {
 
 	private Piece piece;
 	private final Coordinate coord; // coordinate doesn't move for Location
+	private final Color color;
 
 	/**
 	 * Constructs a new Location
@@ -26,9 +27,10 @@ public class Location {
 	 * @param coord
 	 *            the Coordinate
 	 */
-	public Location(Piece piece, Coordinate coord) {
+	public Location(Piece piece, Coordinate coord, Color color) {
 		this.piece = piece;
 		this.coord = coord;
+		this.color = color;
 	}
 
 	public Piece getPiece() {
