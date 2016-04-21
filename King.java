@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 public class King extends Piece {
 	
-    	public King(String color, int num, int letter) {
+    	public King(Color color, int num, int letter) {
     		super(color,num,letter);
 	}
     
@@ -9,8 +9,8 @@ public class King extends Piece {
     		return false; //Kings can't be impeded
 	}
 	
-	public boolean testMove(Board board, int num, int letter) { //Tests whether the move is in a 1 square radius and a valid move.
-        	Location l = b.getLocAt(num,letter); 
+	public boolean testMove(Board board, Coordinate coord) { //Tests whether the move is in a 1 square radius and a valid move.
+        	Location l = b.getLocAt(Coordinate coord); 
         	Piece p = l.getPiece();
         	if (!super.notSameColor(p))
         		return false;
@@ -20,7 +20,7 @@ public class King extends Piece {
 	
 	public boolean isInCheck(Board board, ArrayList<Piece> pieces) { // This method will check if the king is in check. It takes in a board
 		for (Piece p : pieces) {                                 //and the opposing player's pieces and tests whether 
-			if (p.testMove(board,super.getNum(),super.getLetter()) // they can reach the king. It will return true if so.
+			if (p.testMove(board,Coordinate coord) // they can reach the king. It will return true if so.
 				return true;
 		return false;
 	}
