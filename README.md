@@ -2,7 +2,7 @@
 #Tomorrow is the last open Lab.
 # TODO:  
 
-1- Update Documentation, utilize the coorodinate class. 
+1- ~~Update Documentation, utilize the coorodinate class.~~ Get game processes and Swing up and running. We'll need to also need to make the documentation of the classes and methods without documentation.
 
 ~~Utilize the Location and Piece objects I have provided in the skeletons of the methods. getNum() and getLetter() are implemented in both Location and Piece, and getLocAt() will get the Location object at the given coordinates. 
 Location.procCoords() returns the String notation of what the notation is (letter)(number).The double array coordinate system is(letter)(number)(letter), with 0-7 being the direction of white on the "number" axis which will graphically be the y axis, and 7-0 the direction of black on the "letter" axis which will graphically be the x axis.~~
