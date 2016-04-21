@@ -44,5 +44,9 @@ public class Location {
 	public Coordinate getCoord() {
 		return coord;
 	}
+	
+	public Color getColor() {
+		return color;
+	}
 
 }
