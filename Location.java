@@ -1,39 +1,46 @@
-
 public class Location {
-	private String notatedLoc;
+
 	private Piece piece;
-	private int numLoc;
-	private int letterLoc;
-	
-	public Location(Piece p, int num, int letter) { //constructor, takes in a Piece, number coord, and a letter coord. Processes
-		piece = p; //these coordinates into a notated String to be stored.
-		numLoc = num;
-		letterLoc = letter;
-		notatedLoc = procCoords(x,y);
+	private final Coordinate coord; // coordinate doesn't move for Location
+
+	/**
+	 * Constructs a new Location
+	 * 
+	 * @param piece
+	 *            the Piece at this location
+	 * @param num
+	 *            the number coordinate
+	 * @param letter
+	 *            the letter coordinate
+	 */
+	public Location(Piece piece, int num, int letter) {
+		this.piece = piece;
+		this.coord = new Coordinate(num, letter);
 	}
-	
-	public static String procCoords(int num, int letter) { //returns the location in terms of notation
-		String a = "";
-		char b = 'a';
-		b += letter;
-		a += b;
-		return a + (num+1);
+
+	/**
+	 * Constructs a new Location
+	 * 
+	 * @param piece
+	 *            the Piece at this location
+	 * @param coord
+	 *            the Coordinate
+	 */
+	public Location(Piece piece, Coordinate coord) {
+		this.piece = piece;
+		this.coord = coord;
 	}
-	
-	public String getNotation() {
-		return notatedLoc;
-	}
-	
-	public int getNum() { //returns the "number" coordinate
-		return numLoc;
-	}
-	
-	public int getLetter() { //returns the "letter" coordinate
-		return letterLoc;
-	}
-	
-	public Piece getPiece() { //returns the Piece object in the Location
+
+	public Piece getPiece() {
 		return piece;
 	}
-	
+
+	public void setPiece(Piece piece) {
+		this.piece = piece;
+	}
+
+	public Coordinate getCoord() {
+		return coord;
+	}
+
 }
