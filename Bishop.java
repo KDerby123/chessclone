@@ -1,14 +1,16 @@
 
 public class Bishop extends Piece {
 	
-	public Bishop(String color, int num, int letter) {
-        	super(color,num,letter);
+	public Bishop(Color color, Coordinate coord) {
+        	super(color,coord);
      	}
 	
 	@Override
-     	public boolean impededCheck(Board board, int num, int letter) { //skeleton
+     	public boolean impededCheck(Board board, Coordinate coord) { //skeleton
      		int selNum = super.getNum();
      		int selLetter = super.getLetter();
+     		int num = coord.getNum();
+     		int letter == coord.getLetter()
      		int numInc = Piece.genInc(selNum,num);
      		int letterInc = Piece.genInc(selLetter,letter);
      		while ((selNum != num) && (selLetter != letter) {
@@ -19,14 +21,16 @@ public class Bishop extends Piece {
      	}	
      
      	@Override
-     	public boolean testMove(Board board, int num, int letter) { //Moves diagonally and vertically
+     	public boolean testMove(Board board, Coordinate coord) { //Moves diagonally and vertically
         	Location loc = board.getLocAt(num,letter);
         	Piece p = loc.getPiece();
+        	int num = coord.getNum();
+        	int letter = coord.getLetter();
         	if (!super.notSameColor(p))
         		return false;
        		double slope = (1.0 * Math.abs(super.getNum()-num))/Math.abs(super.getLetter()-letter);
        		if (slope == 1.0)
-       			return impededCheck(board,num,letter);
+       			return impededCheck(board,coord);
        		return false;
     	}
 }
