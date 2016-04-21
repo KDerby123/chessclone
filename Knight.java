@@ -1,17 +1,17 @@
 
 public class Knight {
 
-    public Knight(String c, int x, int y) {
-        super(c,x,y);
+    public Knight(Color color,Coordinate coord) {
+        super(color,coord);
     }
     
-    public boolean impededCheck(Board board, int num, int letter) {
+    public boolean impededCheck(Board board, Coordinate coord) {
         return false; //Knights can't be impeded
     }
     
     
-    public boolean testMove(Board b, int num, int letter) { //Moves in a L fashion, 1 square vertically, 2 squares horizontally
-        Location l = b.getLocAt(num,letter);
+    public boolean testMove(Board b, Coordinate coord) { //Moves in a L fashion, 1 square vertically, 2 squares horizontally
+        Location l = b.getLocAt(coord);
         Piece p = l.getPiece();
         if (!super.notSameColor(p))
            return false;
