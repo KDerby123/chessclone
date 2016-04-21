@@ -1,5 +1,5 @@
 # chessclone  
-
+#Tomorrow is the last open Lab.
 # TODO:  
 
 1- Update Documentation, utilize the coorodinate class. 
@@ -13,6 +13,6 @@ The double array coordinate system is(letter)(number)(letter), with 0-7 being th
 
  UPDATE: ALL testMove methods are done, and I have added an abstract impededCheck method to the Piece class. The testMove method should utilize this method as a helper method to check if the path to the move is clear, if not, it will return false. The code has yet to be tested, and needs to be.
 
-~lease note that the instance of Check will be tested seprately, so you do not need to worry about that. You only need to test on whether the piece can reach its destination without impedence. 
+Please note that the instance of Check will be tested seprately, so you do not need to worry about that. You only need to test on whether the piece can reach its destination without impedence. 
 
-#Tomorrow is the last open Lab. 
+ 
