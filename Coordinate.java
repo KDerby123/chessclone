@@ -5,7 +5,7 @@ public class Coordinate {
 	public int letter;
 
 	/**
-	 * Constructs a Coordinate object
+	 * @desc Constructs a Coordinate object
 	 * 
 	 * @param num
 	 *            the numb (row) of this Coordinate
@@ -18,6 +18,8 @@ public class Coordinate {
 	}
 
 	/**
+	 * @desc A method that returns the notated version of the Coordinate object provided.
+	 * 
 	 * @param pos
 	 *            the Coordinate
 	 * @return Notated String of Coordinate (IE: a8 or d5)
@@ -44,10 +46,56 @@ public class Coordinate {
 	public String getNotation() {
 		return notatedPos(this);
 	}
-
+	
+	/**
+	 * @desc A method that returns a Coordinate object of the notation provided.
+	 * 
+	 * @param Notated String object of coordinates.
+	 * 
+	 * @return Coordinate object of coordinates provided.
+	 */ 
 	public static Coordinate decode(String notation) {
 		int letter = 'a' - notation.charAt(0);
 		int num = Integer.valueOf(notation.charAt(1)) - 1;
 		return new Coordinate(num, letter);
+	}
+	
+	/** 
+	 * @desc Accessor method, returns the int number val
+	 * 
+	 * @return Number integer
+	 */
+	public int getNum() {
+		return num;
+	} 
+	
+	/** 
+	 * @desc Accessor method, returns the int letter val
+	 * 
+	 * @return Letter integer
+	 */
+	public int getLetter() {
+		return letter;
+	}
+	
+	/**
+	 * @desc Compares the Coordinates and returns true if they are the same.
+	 * 
+	 * @param Coordinate object being compared
+	 * 
+	 * @return true if coordinates are alike, false if not
+	 */ 
+	public boolean equals(Coordinate c) {
+		return c.getNotation().equals(getNotation());
+	}
+	
+	/** 
+	 * @desc When the object is called upon as a String object, it returns the notated version of the object
+	 * 
+	 * @return Notated version of the coordinates of the object
+	 */ 
+	@Override
+	public String toString() {
+		return getNotation();
 	}
 }
