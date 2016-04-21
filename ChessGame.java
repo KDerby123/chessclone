@@ -1,3 +1,4 @@
+//A single game of chess
 public class ChessGame {
     private Board board;
     private int movesWithoutAgress;
