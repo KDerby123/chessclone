@@ -15,6 +15,6 @@ Please note that the instance of Check will be tested seprately, so you do not n
 
 ~~Also, we need to decide when we are doing our "open lab" time.~~
 
-~~# List of possible open lab times:  ~~
+~~List of possible open lab times:~~
 
 ~~KD - I'll be able to be here for all of the other 3 open lab days, but not 4/15(today).~~
