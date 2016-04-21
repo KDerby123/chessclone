@@ -14,55 +14,63 @@ public class Board {
 		RIGHT_BOUND = BOARD.length;
 		UP_BOUND = 0;
 		DOWN_BOUND = BOARD[0].length;
+		w.setColor("WHITE");
+		b.setColor("BLACK");
 		white = w;
 		black = b;
 		boardInit();
 	}
 	
-	private void addToBoard(Location loc, int num, int letter) {
+	private void addToBoard(Location loc,int num, int letter) {
 		BOARD[num][letter] = loc;
 	}
 	
-	pubilc boolean isEmpty(int num, int letter) {
+	public boolean isEmpty(Coordinate coord) {
+		int num = coord.getNum();
+		int letter = coord.getLetter();
 		return BOARD[num][letter].getPiece() == null;
 	}
 	
-	private static boolean isValid(int num, int letter) {
+	private static boolean isValid(Coordinate coord) {
+		int num = coord.getNum();
+		int letter = coord.getLetter();
 		return num <= RIGHT_BOUND && letter <= DOWN_BOUND && num >= LEFT_BOUND && letter >= UP_BOUND;
 	}
 	
 	public void boardInit() {
-		String color;
+		Color color;
 		Piece piece;
+		Coordinate coord
 		for (int num = 0;num<8;num++) { //"number"(y) axis
 			for (int letter = 0;letter<8;letter++) { //"letter"(x) axis
+				coord = new Coordinate(num,letter);
 				if (num<2)
-					color = "white";
+					color = "WHITE";
 				if (num>=6)
-					color = "black";
-				else
-					color = null;
+					color = "BLACK";
 				if ((num == 0) || (num == 7)) 
 					if ((letter == 0) || (letter == 7))
-						piece = new Rook(color,num,letter);
+						piece = new Rook(color,coord);
 					else if ((letter==1) || (letter==6))
-						piece = new Knight(color,num,letter);
+						piece = new Knight(color,coord);
 					else if ((letter==2) || (letter==5))
-						piece = new Bishop(color,num,letter);
+						piece = new Bishop(color,coord);
 					else if (letter == 3)
-						piece = new King(color,num,letter);
+						piece = new King(color,coord);
 					else if (letter == 4)
-						piece = new Queen(color,num,letter);
+						piece = new Queen(color,coord);
 				if ((num == 1) || (num == 6))
-					piece = new Pawn(color,num,letter);
+					piece = new Pawn(color,coord);
 				else
 					piece = null;
-			addToBoard(new Location(piece,num,letter),num,letter);
+			addToBoard(new Location(piece,coord),num,letter);
 			}
 		}
 	}
 	
-	public Location getLocAt(int num, int letter) { //access a location on the board using notation
+	public Location getLocAt(Coordinate coord) { //access a location on the board using notation
+		int num = coord.getNum();
+		int letter = coord.getLetter();
 		return BOARD[num][letter];
 	}
 }
