@@ -63,6 +63,11 @@ public class Board {
 					piece = new Pawn(color,coord);
 				else
 					piece = null;
+				if (piece == null)
+					if (num < 2)
+						white.addPiece(piece);
+					else
+						black.addPiece(piece);
 			addToBoard(new Location(piece,coord),num,letter);
 			}
 		}
