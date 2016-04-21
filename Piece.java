@@ -79,6 +79,14 @@ public abstract class Piece {
 	public Coordinate getCoord() {
 		return coord;
 	}
+	
+	public int getNum() {
+		return coord.getNum();
+	}
+	
+	public int getLetter() {
+		return coord.getLetter();
+	}
 
 	public void setCoord(Coordinate coord) {
 		this.coord = coord;
