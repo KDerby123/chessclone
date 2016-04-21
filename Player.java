@@ -3,6 +3,13 @@ public class Player {
 	private ArrayList<Piece> pieces;
 	private ArrayList<String> moves;
 	private Color color;
+	private String name;
+	
+	public Player(String name) {
+		this.name = name;
+		pieces = new ArrayList<Piece>();
+		moves = new ArrayList<String>();
+	}
 	
 	public abstract void makeMove();
 	
