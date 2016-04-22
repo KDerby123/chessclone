@@ -32,4 +32,8 @@ public class Rook extends Piece {
         		return false;
         	return impededCheck(board,num,letter);
     } 
+    
+    public String toString() {
+    	return "R" + Coordinate.notatedLoc(coord);
+    }
 }
