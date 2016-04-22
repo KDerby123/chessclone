@@ -1,8 +1,10 @@
 //A single game of chess
+import java.util.ArrayList;
 public class ChessGame {
-    private Board board;
+    private final Board board;
     private int movesWithoutAgress;
     private int moves;
+    private Color turn;
     
     public ChessGame() {
         gameSetup();
@@ -28,7 +30,7 @@ public class ChessGame {
             return true;
         if (unwinnableGame())
             return true;
-        if (stalemate())
+        if (stalemate(turn))
             return true;
         if (threeMoveRule())
             return true;
@@ -75,12 +77,32 @@ public class ChessGame {
         return (bishopWhiteCount >= 1) && (bishopBlackCount >= 1);
     }
     
-    public boolean stalemate() {
-        
+    public boolean stalemate(Color color) {
+        ArrayList<Piece> pieces;
+        if (color == WHITE)
+            pieces = board.getWhitePlayer().getPieces();
+        else
+            pieces = board.getBlackPlayer.getPieces
+        for (Piece piece : pieces)
+            if (piece.hasMove())
+                return false;
+        return true;
     }
     
     public boolean threeMoveRule() {
-        
+        ArrayList<String> whiteMoves = BOARD.getWhitePlayer().getMoves();
+        ArrayList<String> blackMoves = BOARD.getBlackPlayer().getMoves();
+        if ((whiteMoves.size() < 3) && (blackMoves.size() < 3))
+            return false;
+        return testLastMoves(whiteMoves) && testLastMoves(blackMoves);
+    }
+    
+    private boolean testLastMoves(ArrayList<String> moves) {
+        String move = moves.get(moves.size()-3);
+        for (int i = 2;i>0;i--)
+            if (!move.equals(moves.get(moves.size()-i)))
+                return false;
+        return true;
     }
     
 }
