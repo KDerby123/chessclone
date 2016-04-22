@@ -21,6 +21,6 @@ public class Knight {
     }
     
     public String toString() {
-        return "N" + super.toString();
+        return "N" + Coordinate.notatedLoc(super.getCoordinate());
     }
 }
