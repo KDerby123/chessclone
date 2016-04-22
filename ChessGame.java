@@ -6,8 +6,8 @@ public class ChessGame {
     private int moves;
     private boolean whiteTurn;
     
-    public ChessGame(Player white, Player black) {
-        gameSetup(white,black);
+    public ChessGame(Player playerOne, Player playerTwo) {
+        gameSetup(playerOne,playerTwo);
     }
     
     public boolean playGame() { //main game method
@@ -51,15 +51,22 @@ public class ChessGame {
     			movesWithoutAgress++;
 	}
     
-    private void gameSetup(Player white, Player black) {
+    private void gameSetup(Player playerOne, Player playerTwo) {
+    	if (oneGoesFirst()) {
+    		white = playerOne;
+    		black = playerTwo;
+    	} else {
+    		white = playerTwo;
+    		black = playerOne;
+    	}
         BOARD = new Board(white,black);
         whiteTurn = true;
         moves = 0;
         movesWithoutAgress = 0;
     } 
     
-    public Player playerSetup() {
-    	//setup the player
+    private boolean oneGoesFirst() {
+    	//asks player one if he/she wantsto go first, returns true if yes, false if not.
     }
     
     private String checkGameOver() {
