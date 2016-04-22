@@ -19,4 +19,8 @@ public class Knight {
         int letterTest = Math.abs(super.getLetter()-letter);
         return (((numTest == 1) && (letterTest == 2)) || ((numTest == 2) && (letterTest == 1))); 
     }
+    
+    public String toString() {
+        return "N" + super.toString();
+    }
 }
