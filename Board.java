@@ -5,8 +5,8 @@ public class Board {
 	private final int RIGHT_BOUND;
 	private final int UP_BOUND;
 	private final int DOWN_BOUND;
-	private Player white;
-	private Player black;
+	private final Player WHITE;
+	private final Player BLACK;
 	
 	public Board(Player w, Player b) {
 		BOARD = new Location[8][8];
@@ -16,8 +16,8 @@ public class Board {
 		DOWN_BOUND = BOARD[0].length;
 		w.setColor(WHITE);
 		b.setColor(BLACK);
-		white = w;
-		black = b;
+		WHITE = w;
+		BLACK = b;
 		boardInit();
 	}
 	
@@ -64,11 +64,16 @@ public class Board {
 					piece = new Pawn(color,coord);
 				else
 					piece = null;
-				if (piece == null)
-					if (num < 2)
-						white.addPiece(piece);
-					else
-						black.addPiece(piece);
+				if (piece != null) 
+					if (piece instanceof King)
+						if (piece.getColor() == WHITE)
+							WHITE.setKing(piece);
+						else
+							BLACK.setKing(piece);
+					else if (num < 2)
+							WHITE.addPiece(piece);
+						else
+							BLACK.addPiece(piece);
 			if (num % 2 == letter % 2)
 				squareColor = WHITE;
 			else
@@ -95,10 +100,10 @@ public class Board {
 	
 	
 	public Player getWhitePlayer() {
-		return white;
+		return WHITE;
 	}
 	
 	public Player getBlackPlayer() {
-		return black;
+		return BLACK;
 	}
 }
