@@ -83,4 +83,12 @@ public class Board {
 		int letter = coord.getLetter();
 		return BOARD[num][letter];
 	}
+	
+	public Player getWhitePlayer() {
+		return white;
+	}
+	
+	public Player getBlackPlayer() {
+		return black;
+	}
 }
