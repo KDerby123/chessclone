@@ -6,12 +6,29 @@ public class ChessGame {
     private int moves;
     private boolean whiteTurn;
     
-    public ChessGame() {
-        gameSetup();
+    public ChessGame(Player white, Player black) {
+        gameSetup(white,black);
     }
     
-    public void playGame() {
+    public boolean playGame() { //main game method
+    	String result = checkGameOver();
+    	Player currentPlayer;
+    	while (result.equals("Continue"))
+    		if (whiteTurn)
+    			currentPlayer = BOARD.getWhitePlayer();
+    		else
+    			currentPlayer = BOARD.getBlackPlayer();
+    		makeMove(currentPlayer);
+    	}
+    	displayResult(result);
+    }
+    
+    public boolean replay() {
     	
+    }
+    
+    public void displayResult(String result) {
+    	//Display the result
     }
     
     	public void makeMove(Player currentPlayer) {
@@ -34,13 +51,16 @@ public class ChessGame {
     			movesWithoutAgress++;
 	}
     
-    private void gameSetup() {
-        Player playerOne;
-        Player playerTwo;
+    private void gameSetup(Player white, Player black) {
+        BOARD = new Board(white,black);
         whiteTurn = true;
         moves = 0;
         movesWithoutAgress = 0;
     } 
+    
+    public Player playerSetup() {
+    	//setup the player
+    }
     
     private String checkGameOver() {
         if (checkDraw())
@@ -172,4 +192,13 @@ public class ChessGame {
 			return BOARD.getBlackPlayer();
 		else
 			return BOARD.getWhitePlayer();
+	}
+	
+	public Player getWhitePlayer() {
+		return BOARD.getWhitePlayer();
+	}
+	
+	public Player getBlackPlayer() {
+		return BOARD.getBlackPlayer();
+	}
 }
