@@ -5,8 +5,8 @@ public class Board {
 	private final int RIGHT_BOUND;
 	private final int UP_BOUND;
 	private final int DOWN_BOUND;
-	private final Player WHITE;
-	private final Player BLACK;
+	private final Player WHITE_PLAYER;
+	private final Player BLACK_PLAYER;
 	
 	public Board(Player w, Player b) {
 		BOARD = new Location[8][8];
@@ -16,8 +16,8 @@ public class Board {
 		DOWN_BOUND = BOARD[0].length;
 		w.setColor(WHITE);
 		b.setColor(BLACK);
-		WHITE = w;
-		BLACK = b;
+		WHITE_PLAYER = w;
+		BLACK_PLAYER = b;
 		boardInit();
 	}
 	
@@ -67,13 +67,13 @@ public class Board {
 				if (piece != null) 
 					if (piece instanceof King)
 						if (piece.getColor() == WHITE)
-							WHITE.setKing(piece);
+							WHITE_PLAYER.setKing(piece);
 						else
-							BLACK.setKing(piece);
+							BLACK_PLAYER.setKing(piece);
 					else if (num < 2)
-							WHITE.addPiece(piece);
+							WHITE_PLAYER.addPiece(piece);
 						else
-							BLACK.addPiece(piece);
+							BLACK_PLAYER.addPiece(piece);
 			if (num % 2 == letter % 2)
 				squareColor = WHITE;
 			else
@@ -100,10 +100,10 @@ public class Board {
 	
 	
 	public Player getWhitePlayer() {
-		return WHITE;
+		return WHITE_PLAYER;
 	}
 	
 	public Player getBlackPlayer() {
-		return BLACK;
+		return BLACK_PLAYER;
 	}
 }
