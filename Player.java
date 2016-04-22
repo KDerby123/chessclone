@@ -12,14 +12,11 @@ public class Player {
 		moves = new ArrayList<String>();
 	}
 	
-	public void makeMove() {
-		
-	}
 	public ArrayList<Piece> getPieces() { //gets the Player's pieces
 		return pieces;
 	}
 	
-	public void getMoves() { //gets the players moves
+	public ArrayList<String> getMoves() { //gets the players moves
 		return moves;
 	}
 	
