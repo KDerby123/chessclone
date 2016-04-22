@@ -39,4 +39,8 @@ public class Pawn extends Piece {
 	public boolean promoteCheck() {
 		return coord.getNum() == 7;
 	}
+	
+	public String toString() {
+		return "";
+	}
 }
