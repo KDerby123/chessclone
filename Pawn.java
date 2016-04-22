@@ -35,4 +35,8 @@ public class Pawn extends Piece {
 				return ((Math.abs(super.getLetter()-letter) == 1) && (super.getNum() == num-1)); //take move
 				
 	}
+	
+	public boolean promoteCheck() {
+		return coord.getNum() == 7;
+	}
 }
