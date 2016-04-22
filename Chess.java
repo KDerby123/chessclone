@@ -13,6 +13,10 @@ public class Chess {
         frame.pack();
         frame.setVisible(true);
     }
+    
+    public Player playerSetup() {
+    	//Setups a player, and returns it. (input the name)
+    }
 
     public static void main(String[] args) {
         //Schedule a job for the event-dispatching thread:
