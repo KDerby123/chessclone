@@ -39,7 +39,7 @@ public class Queen extends Piece {
 	}
 	
 	public String toString() {
-		return "Q" + Coordinate.notatedLoc(coord);	
+		return "Q" + Coordinate.notatedLoc(super.getCoordinate());	
 	}
 	
 }
