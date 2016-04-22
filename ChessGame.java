@@ -105,11 +105,13 @@ public class ChessGame {
         return true;
     }
     
-    public boolean testCheck(Coordinate to, Coordinate from, King king) { //Still needs to remove piece, and ignore the piece taken
+    public boolean testCheck(Coordinate to, Coordinate from, Player player, King king) { //Still needs to remove piece, and ignore the piece taken
 		Piece tempPiece = BOARD.replace(to,from);
+		player.removePiece(tempPiece);
 		if (king.isInCheck(BOARD)) {
 		   BOARD.getLocAt(from).setPiece(BOARD.getLocAt(to).getPiece());
 		   BOARD.getLocAt(to).setPiece(tempPiece);
+		   player.addPiece(tempPiece)
 		   return true;
 		}
 		return false;
