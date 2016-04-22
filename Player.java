@@ -4,6 +4,7 @@ public class Player {
 	private ArrayList<String> moves;
 	private Color color;
 	private String name;
+	private King king;
 	
 	public Player(String name) {
 		this.name = name;
@@ -40,5 +41,13 @@ public class Player {
 	
 	public void setColor(Color color) {
 		this.color = color;
+	}
+	
+	public void addPiece(Piece piece) {
+		pieces.add(piece);
+	}
+	
+	public void setKing(King king) {
+		this.king = king;
 	}
 }
