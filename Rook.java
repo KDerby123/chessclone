@@ -34,6 +34,6 @@ public class Rook extends Piece {
     } 
     
     public String toString() {
-    	return "R" + Coordinate.notatedLoc(coord);
+    	return "R" + Coordinate.notatedLoc(super.getCoordinate());
     }
 }
