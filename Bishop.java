@@ -35,6 +35,6 @@ public class Bishop extends Piece {
     	}
     	
     	public String toString() {
-    		return "B" + Coordinate.notatedLoc(coord);
+    		return "B" + Coordinate.notatedLoc(super.getCoordinate());
     	}
 }
