@@ -4,10 +4,14 @@ public class ChessGame {
     private final Board BOARD;
     private int movesWithoutAgress;
     private int moves;
-    private Color turn;
+    private boolean turn;
     
     public ChessGame() {
         gameSetup();
+    }
+    
+    public void playGame() {
+    	
     }
     
     private void gameSetup() {
@@ -119,8 +123,6 @@ public class ChessGame {
 	
 	public void promotePawn(Piece piece, String pieceName) {
 		Piece newPiece;
-		if (!((piece instanceof Pawn) && (piece.promoteCheck())))
-			return;
 		newPiece = promotedPiece(piece.getColor(),piece.getCoordinate(),pieceName);
 		while (newPiece == null)
 			newPiece = promotedPiece(piece.getColor(),piece.getCoordinate(),pieceName);
