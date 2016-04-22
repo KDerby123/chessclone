@@ -11,8 +11,9 @@ public class Player {
 		moves = new ArrayList<String>();
 	}
 	
-	public abstract void makeMove();
-	
+	public void makeMove() {
+		
+	}
 	public ArrayList<Piece> getPieces() { //gets the Player's pieces
 		return pieces;
 	}
