@@ -1,4 +1,5 @@
-//This will be the driver class.
+//This will be the driver class. It also should utlize the ChessGame class as an individual game, and replay by creating another ChessGame.
+//Replays will be achieved by inputing the players that were used last game into a new Chessgame such as Chessgame(Player, Player).
 import javax.swing.*; 
 
 
