@@ -41,6 +41,6 @@ public class Pawn extends Piece {
 	}
 	
 	public String toString() {
-		return super.toString();
+		return Coordinate.notatedLoc(super.getCoordinate());;
 	}
 }
