@@ -1,7 +1,7 @@
 //A single game of chess
 import java.util.ArrayList;
 public class ChessGame {
-    private final Board board;
+    private final Board BOARD;
     private int movesWithoutAgress;
     private int moves;
     private Color turn;
@@ -60,7 +60,7 @@ public class ChessGame {
             if (piece instanceof Pawn)
                 return true;
             if (piece instanceof Bishop) {
-                squareColor = board.getLocAt(piece.getCoordinate()).getColor();
+                squareColor = BOARD.getLocAt(piece.getCoordinate()).getColor();
                 if (color == WHITE)
                     bishopWhiteCount++;
                 else
@@ -105,4 +105,13 @@ public class ChessGame {
         return true;
     }
     
+    public boolean testCheck(Coordinate to, Coordinate from, King king) { //Still needs to remove piece, and ignore the piece taken
+		Piece tempPiece = BOARD.replace(to,from);
+		if (king.isInCheck(BOARD)) {
+		   BOARD.getLocAt(from).setPiece(BOARD.getLocAt(to).getPiece());
+		   BOARD.getLocAt(to).setPiece(tempPiece);
+		   return true;
+		}
+		return false;
+	}
 }
