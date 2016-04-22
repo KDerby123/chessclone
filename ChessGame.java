@@ -116,4 +116,30 @@ public class ChessGame {
 		}
 		return false;
 	}
+	
+	public void promotePawn(Piece piece, String pieceName) {
+		Piece newPiece;
+		if (!((piece instanceof Pawn) && (piece.promoteCheck())))
+			return;
+		newPiece = promotedPiece(piece.getColor(),piece.getCoordinate(),pieceName);
+		while (newPiece == null)
+			newPiece = promotedPiece(piece.getColor(),piece.getCoordinate(),pieceName);
+		BOARD.getLocAt(piece.getCoordinate()).setPiece(newPiece);
+		if (piece.getColor() == WHITE)
+			BOARD.getWhitePlayer().addPiece(newPiece);
+		else
+			BOARD.getBlackPlayer().addPiece(newPiece);
+	}
+	
+	public Piece promotedPiece(Coordinate coord, Color color, String piece) {
+		if (piece.equals("Queen"))
+			return new Queen(color,coord);
+		if (piece.equals("Rook"))
+			return new Rook(color,coord);
+		if (piece.equals("Knight"))
+			return new Knight(color,coord);
+		if (piece.equals("Bishop"))
+			return new Bishop(color,coord);
+		return null;
+	}
 }
