@@ -33,4 +33,8 @@ public class Bishop extends Piece {
        			return impededCheck(board,coord);
        		return false;
     	}
+    	
+    	public String toString() {
+    		return "B" + super.toString();
+    	}
 }
