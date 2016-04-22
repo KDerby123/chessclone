@@ -37,8 +37,8 @@ public class ChessGame {
 		boolean successMove = false; 
 		boolean capture;
 		while (!successMove) {
-			selectedPiece = inputPiece();
-			destinationCoord = inputCoordinate();
+			selectedPiece = inputPiece(); //this needs to take in the piece selected to move
+			destinationCoord = inputCoordinate(); //This needs to take in the location of where to go selected
 			capture =  (BOARD.getLocAt(destinationCoord).getPiece() != null);
 			successMove = (piece.testMove(destinationCoord) && testCheck(selectedPiece.getCoordinate(),destinationCoord,currentPlayer));
     		}
