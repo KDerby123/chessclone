@@ -84,6 +84,16 @@ public class Board {
 		return BOARD[num][letter];
 	}
 	
+	public Piece replace(Coordinate to, Coordinate from) {
+		Location to = getLocAt(to);
+		Location from = getLocAt(from);
+		Piece piece = to.getPiece();
+		to.setPiece(from.getPiece());
+		from.setPiece(null);
+		return piece;
+	}
+	
+	
 	public Player getWhitePlayer() {
 		return white;
 	}
