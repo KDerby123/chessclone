@@ -86,7 +86,7 @@ public class Coordinate {
 	 * @return true if coordinates are alike, false if not
 	 */ 
 	public boolean equals(Coordinate c) {
-		return c.getNotation().equals(getNotation());
+		return (num == c.getNum()) && (letter = c.getLetter());
 	}
 	
 	/** 
