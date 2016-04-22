@@ -14,8 +14,8 @@ public class Board {
 		RIGHT_BOUND = BOARD.length;
 		UP_BOUND = 0;
 		DOWN_BOUND = BOARD[0].length;
-		w.setColor("WHITE");
-		b.setColor("BLACK");
+		w.setColor(WHITE);
+		b.setColor(BLACK);
 		white = w;
 		black = b;
 		boardInit();
@@ -46,9 +46,9 @@ public class Board {
 			for (int letter = 0;letter<8;letter++) { //"letter"(x) axis
 				coord = new Coordinate(num,letter);
 				if (num<2)
-					color = "WHITE";
+					color = WHITE;
 				if (num>=6)
-					color = "BLACK";
+					color = BLACK;
 				if ((num == 0) || (num == 7)) 
 					if ((letter == 0) || (letter == 7))
 						piece = new Rook(color,coord);
@@ -70,9 +70,9 @@ public class Board {
 					else
 						black.addPiece(piece);
 			if (num % 2 == letter % 2)
-				squareColor = "WHITE";
+				squareColor = WHITE;
 			else
-				squareColor = "BLACK";
+				squareColor = BLACK;
 			addToBoard(new Location(piece,coord,squareColor),num,letter);
 			}
 		}
