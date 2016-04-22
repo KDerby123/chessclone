@@ -26,7 +26,7 @@ public class King extends Piece {
 	}
 	
 	public String toString() {
-		return "K" + Coordinate.notatedLoc(coord);
+		return "K" + Coordinate.notatedLoc(super.getCoordinate());
 	}
 	
 	
