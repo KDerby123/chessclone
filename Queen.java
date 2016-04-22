@@ -37,4 +37,9 @@ public class Queen extends Piece {
        			return impededCheck(board,num,letter);
        		return false;
 	}
+	
+	public String toString() {
+		return "Q" + Coordinate.notatedLoc(coord);	
+	}
+	
 }
