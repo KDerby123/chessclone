@@ -59,7 +59,7 @@ public class ChessGame {
                 return true;
             if (piece instanceof Bishop) {
                 squareColor = board.getLocAt(piece.getCoordinate()).getColor();
-                if (color.equals("WHITE"))
+                if (color == WHITE)
                     bishopWhiteCount++;
                 else
                     bishopBlackCount++;
