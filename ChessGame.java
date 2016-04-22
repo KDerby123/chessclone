@@ -4,7 +4,7 @@ public class ChessGame {
     private final Board BOARD;
     private int movesWithoutAgress;
     private int moves;
-    private boolean turn;
+    private boolean whiteTurn;
     
     public ChessGame() {
         gameSetup();
@@ -21,11 +21,11 @@ public class ChessGame {
         movesWithoutAgress = 0;
     } 
     
-    private boolean checkGameOver() {
+    private String checkGameOver() {
         if (checkDraw())
             return "Draw";
         if (checkWin());
-            return winningPlayer();
+            return winningPlayer().getName() + " wins!";
         return "Continue";
     }
     
@@ -144,4 +144,10 @@ public class ChessGame {
 			return new Bishop(color,coord);
 		return null;
 	}
+	
+	public Player winningPlayer() {
+		if (whiteTurn)
+			return BOARD.getBlackPlayer();
+		else
+			return BOARD.getWhitePlayer();
 }
