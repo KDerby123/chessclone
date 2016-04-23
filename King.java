@@ -25,6 +25,12 @@ public class King extends Piece {
 		return false;
 	}
 	
+	public ArrayList<Coordinate> getMoveSpan() {
+    		ArrayList<Coordinate> coords = new ArrayList<Coordinate>();
+    		//input all coords
+    		return coords;
+    	}
+	
 	public String toString() {
 		return "K" + Coordinate.notatedLoc(super.getCoordinate());
 	}
