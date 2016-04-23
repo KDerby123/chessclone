@@ -31,7 +31,13 @@ public class Rook extends Piece {
         	if ((super.getNum() != num) && (super.getLetter() != letter))
         		return false;
         	return impededCheck(board,num,letter);
-    } 
+    	}
+    	
+    	public ArrayList<Coordinate> getMoveSpan() {
+    		ArrayList<Coordinate> coords = new ArrayList<Coordinate>();
+    		//input all coords
+    		return coords;
+    	}
     
     public String toString() {
     	return "R" + Coordinate.notatedLoc(super.getCoordinate());
