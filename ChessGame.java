@@ -83,16 +83,16 @@ public class ChessGame {
     	white = getWhitePlayer();
     	black = getBlackPlayer();
     	if (whiteTurn && white.getKing().isInCheck(BOARD,black.getPieces()))
-    		return checkMate(white);
+    		return checkMate(white,black);
     	else if (!whiteTurn && black.getKing().isInCheck(BOARD,white.getPieces())
-    		return checkMate(black);
+    		return checkMate(black,white);
     	return false;
     }
     
-    private boolean checkMate(Player currentPlayer) {
+    private boolean checkMate(Player currentPlayer, Player oppPlayer) {
     	ArrayList<Piece> pieces = currentPlayer.getPieces();
     	for (Piece piece : pieces) {
-    		if (piece.hasMove())
+    		if (piece.hasMove(BOARD,currentPlayer,oppPlayer))
     			return false;
     	}
     	return true;
