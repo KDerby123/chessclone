@@ -20,6 +20,12 @@ public class Knight {
         return (((numTest == 1) && (letterTest == 2)) || ((numTest == 2) && (letterTest == 1))); 
     }
     
+    public ArrayList<Coordinate> getMoveSpan() {
+        ArrayList<Coordinate> coords = new ArrayList<Coordinate>();
+        //input all coords
+        return coords;
+    }
+    
     public String toString() {
         return "N" + Coordinate.notatedLoc(super.getCoordinate());
     }
