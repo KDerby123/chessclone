@@ -43,7 +43,7 @@ public class Pawn extends Piece {
 		coords[2] = new Coordinate(super.getNum()+1,super.getLetter());
 		coords[3] = new Coordinate(super.getNum()+2,super.getLetter());
 		for (Coordinate coord : coords)
-			if (testMove(board,coord) && testCheck(boord,super.getCoordinate(),coord,oppPlayer))
+			if (testMove(board,coord) && ChessGame.testCheck(boord,super.getCoordinate(),coord,oppPlayer))
 				return true;
 		return false;
 	}
