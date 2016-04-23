@@ -38,6 +38,12 @@ public class Queen extends Piece {
        		return false;
 	}
 	
+	public ArrayList<Coordinate> getMoveSpan() {
+    		ArrayList<Coordinate> coords = new ArrayList<Coordinate>();
+    		//input all coords
+    		return coords;
+    	}
+	
 	public String toString() {
 		return "Q" + Coordinate.notatedLoc(super.getCoordinate());	
 	}
