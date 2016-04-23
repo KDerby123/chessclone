@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public abstract class Piece {
 
 	private Color color;
@@ -47,7 +48,15 @@ public abstract class Piece {
 	 */
 	protected abstract boolean testMove(Board b, Coordinate move);
 
-	protected abstract boolean hasMove(Board board);
+	protected abstract ArrayList<Coordinate> getMoveSpan();
+	
+	public boolean hasMove(Board board, King king,Player oppPlayer) {
+		ArrayList<Coordinate> coords = getMoveSpan();
+		for (Coordinate coord : coords)
+			if (testMove(board,coord) && ChessGame.testCheck(boord,super.getCoordinate(),coord,oppPlayer))
+				return true;
+		return false;
+	}
 	/**
 	 * Checks if opponent piece is at location (is of other color)
 	 * 
