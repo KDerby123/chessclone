@@ -79,6 +79,25 @@ public class ChessGame {
         return "Continue";
     }
     
+    private boolean checkWin() {
+    	white = getWhitePlayer();
+    	black = getBlackPlayer();
+    	if (whiteTurn && white.getKing().isInCheck(BOARD,black.getPieces()))
+    		return checkMate(white);
+    	else if (!whiteTurn && black.getKing().isInCheck(BOARD,white.getPieces())
+    		return checkMate(black);
+    	return false;
+    }
+    
+    private boolean checkMate(Player currentPlayer) {
+    	ArrayList<Piece> pieces = currentPlayer.getPieces();
+    	for (Piece piece : pieces) {
+    		if (piece.hasMove())
+    			return false;
+    	}
+    	return true;
+    }
+    
     private boolean checkDraw() {
         if (50MoveRule())
             return true;
