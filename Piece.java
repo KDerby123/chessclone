@@ -47,6 +47,7 @@ public abstract class Piece {
 	 */
 	protected abstract boolean testMove(Board b, Coordinate move);
 
+	protected abstract boolean hasMove(Board board);
 	/**
 	 * Checks if opponent piece is at location (is of other color)
 	 * 
