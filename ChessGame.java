@@ -42,7 +42,7 @@ public class ChessGame {
 			selectedPiece = inputPiece(); //this needs to take in the piece selected to move
 			destinationCoord = inputCoordinate(); //This needs to take in the location of where to go selected
 			capture =  (BOARD.getLocAt(destinationCoord).getPiece() != null);
-			successMove = (piece.testMove(destinationCoord) && testCheck(selectedPiece.getCoordinate(),destinationCoord,currentPlayer));
+			successMove = (piece.testMove(destinationCoord) && ChessGame.testCheck(BOARD,selectedPiece.getCoordinate(),destinationCoord,currentPlayer));
     		}
     		player.addMove(selectedPiece + Coordinate.getNotation(destinationCoord);
     		if (player.getColor() == BLACK)
@@ -178,13 +178,13 @@ public class ChessGame {
         return true;
     }
     
-    public boolean testCheck(Coordinate to, Coordinate from, Player player) { //Still needs to remove piece, and ignore the piece taken
-		Piece tempPiece = BOARD.replace(to,from);
+    public static boolean testCheck(Board board,Coordinate to, Coordinate from, Player player) { //Still needs to remove piece, and ignore the piece taken
+		Piece tempPiece = board.replace(to,from);
 		King king = player.getKing();
 		player.removePiece(tempPiece);
-		if (king.isInCheck(BOARD)) {
-		   BOARD.getLocAt(from).setPiece(BOARD.getLocAt(to).getPiece());
-		   BOARD.getLocAt(to).setPiece(tempPiece);
+		if (king.isInCheck(board)) {
+		   board.getLocAt(from).setPiece(board.getLocAt(to).getPiece());
+		   board.getLocAt(to).setPiece(tempPiece);
 		   player.addPiece(tempPiece)
 		   return true;
 		}
