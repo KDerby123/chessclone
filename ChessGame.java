@@ -11,7 +11,7 @@ public class ChessGame {
     }
     
     public boolean playGame() { //main game method
-    	String result = checkGameOver();
+    	String result = "Continue";
     	Player currentPlayer;
     	while (result.equals("Continue"))
     		if (whiteTurn)
@@ -19,12 +19,14 @@ public class ChessGame {
     		else
     			currentPlayer = BOARD.getBlackPlayer();
     		makeMove(currentPlayer);
+    		result = checkGameOver()
+    		whiteTurn = !whiteTurn;
     	}
     	displayResult(result);
     }
     
     public boolean replay() {
-    	
+    	//asks if  a replay if it is wanted	
     }
     
     public void displayResult(String result) {
