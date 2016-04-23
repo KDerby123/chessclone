@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 public class Pawn extends Piece {
 	public boolean hasMoved;
 	
@@ -36,17 +36,15 @@ public class Pawn extends Piece {
 				
 	}
 	
-	public boolean hasMove(Board board, King king,Player oppPlayer) {
-		Coordinate[] coords = new Coordinate[4];
-		coords[0] = new Coordinate(super.getNum()+1,super.getLetter()+1);
-		coords[1] = new Coordinate(super.getNum()+1,super.getLetter()-1);
-		coords[2] = new Coordinate(super.getNum()+1,super.getLetter());
-		coords[3] = new Coordinate(super.getNum()+2,super.getLetter());
-		for (Coordinate coord : coords)
-			if (testMove(board,coord) && ChessGame.testCheck(boord,super.getCoordinate(),coord,oppPlayer))
-				return true;
-		return false;
+	public ArrayList<Coordinate> getMoveSpan() {
+		ArrayList<Coordinate> coords = new ArrayList<Coordinate>();
+		coords.add(new Coordinate(super.getNum()+1,super.getLetter()+1));
+		coords.add(new Coordinate(super.getNum()+1,super.getLetter()-1));
+		coords.add(new Coordinate(super.getNum()+1,super.getLetter()));
+		coords.add(new Coordinate(super.getNum()+2,super.getLetter()));
+		return coords;
 	}
+	
 	
 	public boolean promoteCheck() {
 		return coord.getNum() == 7;
