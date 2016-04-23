@@ -34,6 +34,30 @@ public class Bishop extends Piece {
        		return false;
     	}
     	
+    	public ArrayList<Coordinate> getMoveSpan() {
+    		ArrayList<Coordinate> coords = new ArrayList<Coordinate>();
+    		int letterInc = 1;
+    		int numInc = 1;
+    		int currentLetter = super.getCoord().getLetter():
+    		int currentNum - super.getCoord().getNum();
+    		spanHelper(coords,currentNum,currentLetter,numInc,letterInc);
+    		letterInc = -1;
+    		spanHelper(coords,currentNum,currentLetter,numInc,letterInc);
+    		numInc = -1;
+    		spanHelper(coords,currentNum,currentLetter,numInc,letterInc);
+    		letterInc = 1;
+    		spanHelper(coords,currentNum,currentLetter,numInc,letterInc);
+    		return coords;
+    	}
+    	
+    	private void spanHelper(ArrayList<Coordinate coords,int currentNum,int currentLetter,int numInc,int letterInc) {
+    		Coordinate coord = new Coordinate(currentNum+numInc,currentLetter+letterInc);
+    		while (Board.isValid(coord)) {
+    			coords.add(coord);
+    			coord = (new Coordinate(coord.getNum()+numInc,coord.getLetter()+letterInc))
+    		}
+    	}
+    	
     	public String toString() {
     		return "B" + Coordinate.notatedLoc(super.getCoordinate());
     	}
