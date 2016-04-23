@@ -26,7 +26,7 @@ public class ChessGame {
     }
     
     public boolean replay() {
-    	//asks if  a replay if it is wanted	
+    	//asks to see if  a replay is wanted	
     }
     
     public void displayResult(String result) {
