@@ -44,6 +44,10 @@ public class ChessGame {
 			capture =  (BOARD.getLocAt(destinationCoord).getPiece() != null);
 			successMove = (piece.testMove(destinationCoord) && ChessGame.testCheck(BOARD,selectedPiece.getCoordinate(),destinationCoord,currentPlayer));
     		}
+    		if ((selectedPiece instanceof Pawn) && (selectedPiece.promoteCheck())) {
+    			pieceName = getPieceName();
+    			promotePiece(selectedPiece,pieceName);
+    		}	
     		player.addMove(selectedPiece + Coordinate.getNotation(destinationCoord);
     		if (player.getColor() == BLACK)
     			moves++;
@@ -66,6 +70,10 @@ public class ChessGame {
         moves = 0;
         movesWithoutAgress = 0;
     } 
+    
+    private String getPieceName() {
+    	//asks what piece the player wants
+    }
     
     private boolean oneGoesFirst() {
     	//asks player one if he/she wantsto go first, returns true if yes, false if not.
