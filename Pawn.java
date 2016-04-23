@@ -28,7 +28,7 @@ public class Pawn extends Piece {
 					else
 						return super.getNum() == num-1; //returns the only other possible move: 1 square forward
 				else if ((Math.abs(super.getLetter()-letter) == 1) && (super.getNum() == num-1)) //en passant check
-					return (board.getPlayerW().getLastMove().equals(Coordinate.notatedPos(num-1,letter)));
+					return (board.getPlayerW().getLastMove().substring(0,2).equals(Coordinate.notatedPos(num-1,letter)));
 				else
 					return false; //returns false atfer checking all possible cases
 			else
