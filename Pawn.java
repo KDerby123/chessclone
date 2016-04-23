@@ -36,7 +36,7 @@ public class Pawn extends Piece {
 				
 	}
 	
-	public boolean hasMove(Board board, King king) {
+	public boolean hasMove(Board board, King king,Player oppPlayer) {
 		Coordinate[] coords = new Coordinate[4];
 		coords[0] = new Coordinate(super.getNum()+1,super.getLetter()+1);
 		coords[1] = new Coordinate(super.getNum()+1,super.getLetter()-1);
