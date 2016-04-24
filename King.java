@@ -28,8 +28,19 @@ public class King extends Piece {
 	
 	public ArrayList<Coordinate> getMoveSpan() {
     		ArrayList<Coordinate> coords = new ArrayList<Coordinate>();
-    		//input all coords
+    		for (int i = -1;i<=1;i++) {
+    			for(int k = -1;i<=1;i++) {
+    				if ((i != 0) || (k != 0))
+    					spanHelper(coords,i,k);
+    			}
+    		}
     		return coords;
+    	}
+    	
+    	private void spanHelper(ArrayList<Coordinate> coords, int numInc, int letterInc) {
+    		Coordinate coord = new Coordinate(super.getNum()+numInc, super.getLetter()+letterInc);
+    		if (Board.isValid(coord))
+    			coords.add(coord);
     	}
 	
 	public String toString() {
