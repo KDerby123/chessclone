@@ -36,15 +36,10 @@ public class Bishop extends Piece {
     	
     	public ArrayList<Coordinate> getMoveSpan() {
     		ArrayList<Coordinate> coords = new ArrayList<Coordinate>();
-    		int letterInc = 1;
-    		int numInc = 1;
-    		spanHelper(coords,numInc,letterInc);
-    		letterInc = -1;
-    		spanHelper(coords,numInc,letterInc);
-    		numInc = -1;
-    		spanHelper(coords,numInc,letterInc);
-    		letterInc = 1;
-    		spanHelper(coords,numInc,letterInc);
+    		spanHelper(coords,1,1);
+    		spanHelper(coords,1,-1);
+    		spanHelper(coords,-1,-1);
+    		spanHelper(coords,-1,1);
     		return coords;
     	}
     	
