@@ -35,6 +35,7 @@ public class ChessGame {
     
     	public void makeMove(Player currentPlayer) {
     		Piece selectedPiece; = inputPiece();
+    		Piece cappedPiece;
 		Coordinate destinationCoord;  = inputCoordinate();
 		boolean successMove = false; 
 		boolean capture;
@@ -44,6 +45,12 @@ public class ChessGame {
 			capture =  (BOARD.getLocAt(destinationCoord).getPiece() != null);
 			successMove = (piece.testMove(destinationCoord) && ChessGame.testCheck(BOARD,selectedPiece.getCoordinate(),destinationCoord,currentPlayer));
     		}
+    		cappedPiece = BOARD.replace(selectedPiece.getCoordinate(),destinationCoord);
+    		if (cappedPiece != null)
+    			if (currentPlayer.getColor == WHITE)
+    				getBlackPlayer().removePiece(cappedPiece);
+    			else
+    				getWhitePlayer().removePiece(cappedPiece);
     		if ((selectedPiece instanceof Pawn) && (selectedPiece.promoteCheck())) {
     			pieceName = getPieceName();
     			promotePiece(selectedPiece,pieceName);
@@ -187,10 +194,11 @@ public class ChessGame {
     }
     
     public static boolean testCheck(Board board,Coordinate to, Coordinate from, Player player) { //Still needs to remove piece, and ignore the piece taken
-		Piece tempPiece = board.replace(to,from);
+		Piece tempPiece = board.replace(from,to);
 		King king = player.getKing();
 		boolean inCheck = false;
-		player.removePiece(tempPiece);
+		if (tempPiece != null)
+			player.removePiece(tempPiece);
 		if (king.isInCheck(board)) {
 		   inCheck = true;
 		}
