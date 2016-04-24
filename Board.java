@@ -1,19 +1,15 @@
 
 public class Board {
 	private final Location[][] BOARD; //A board of Locations; 8x8 with the first [] detailing the number(y) axis, and the second [] the letter(x) axis
-	private final int LEFT_BOUND;
-	private final int RIGHT_BOUND;
-	private final int UP_BOUND;
-	private final int DOWN_BOUND;
+	private final int LEFT_BOUND = 0;
+	private final int RIGHT_BOUND 7;
+	private final int UP_BOUND = 0;
+	private final int DOWN_BOUND = 7;
 	private final Player WHITE_PLAYER;
 	private final Player BLACK_PLAYER;
 	
 	public Board(Player w, Player b) {
-		BOARD = new Location[8][8];
-		LEFT_BOUND = 0;
-		RIGHT_BOUND = BOARD.length;
-		UP_BOUND = 0;
-		DOWN_BOUND = BOARD[0].length;
+		BOARD = new Location[DOWN_BOUND+1][RIGHT_BOUND+1];
 		w.setColor(WHITE);
 		b.setColor(BLACK);
 		WHITE_PLAYER = w;
