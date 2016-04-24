@@ -40,8 +40,33 @@ public class Queen extends Piece {
 	
 	public ArrayList<Coordinate> getMoveSpan() {
     		ArrayList<Coordinate> coords = new ArrayList<Coordinate>();
-    		//input all coords
+    		spanDiagonalHelper(coords,1,1);
+    		spanDiagonalHelper(coords,1-1);
+    		spanDiagonalHelper(coords,-1,-1);
+    		spanDiagonalHelper(coords,-1,1);
+    		spanHorizHelper(coords,1,0);
+    		spanHorizHelper(coords,-1,0);
+    		spanHorizHelper(coords,0,1);
+    		spanHorizHelper(coords,0,-1);
     		return coords;
+    	}
+    	
+    	private void spanDiagonalHelper(ArrayList<Coordinate coords,int numInc,int letterInc) {
+    		Coordinate coord = new Coordinate(super.getNum()+numInc,super.getLetter()+letterInc);
+    		while (Board.isValid(coord)) {
+    			coords.add(coord);
+    			coord = (new Coordinate(coord.getNum()+numInc,coord.getLetter()+letterInc))
+    		}
+    	}
+    	
+    	private void spanHorizHelper(coords,int i, int k) {
+    		int numInc = i;
+    		int letterInc = k;
+    		Coordinate coord = new Coordinate(super.getNum()+numInc,super.getLetter()+letterInc);
+    		while (Board.isValid(coord)) {
+    			coords.add(coord);
+    			coord = new Coordinate(super.getNum()+numInc,super.getLetter()+letterInc);
+    		}
     	}
 	
 	public String toString() {
