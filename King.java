@@ -18,7 +18,8 @@ public class King extends Piece {
     	
 	}
 	
-	public boolean isInCheck(Board board, ArrayList<Piece> pieces) { // This method will check if the king is in check. It takes in a board
+	public boolean isInCheck(Board board, Player player) {
+		ArrayList<Piece> pieces = player.getPieces// This method will check if the king is in check. It takes in a board
 		for (Piece p : pieces) {                                 //and the opposing player's pieces and tests whether 
 			if (p.testMove(board,Coordinate coord) // they can reach the king. It will return true if so.
 				return true;
