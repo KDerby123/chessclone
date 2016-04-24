@@ -53,7 +53,7 @@ public abstract class Piece {
 	public boolean hasMove(Board board, King king,Player oppPlayer) {
 		ArrayList<Coordinate> coords = getMoveSpan();
 		for (Coordinate coord : coords)
-			if (testMove(board,coord) && ChessGame.testCheck(boord,super.getCoordinate(),coord,oppPlayer))
+			if ((board.isValid(coord) && testMove(board,coord) && ChessGame.testCheck(boord,super.getCoordinate(),coord,oppPlayer))
 				return true;
 		return false;
 	}
