@@ -38,20 +38,18 @@ public class Bishop extends Piece {
     		ArrayList<Coordinate> coords = new ArrayList<Coordinate>();
     		int letterInc = 1;
     		int numInc = 1;
-    		int currentLetter = super.getCoord().getLetter():
-    		int currentNum - super.getCoord().getNum();
-    		spanHelper(coords,currentNum,currentLetter,numInc,letterInc);
+    		spanHelper(coords,numInc,letterInc);
     		letterInc = -1;
-    		spanHelper(coords,currentNum,currentLetter,numInc,letterInc);
+    		spanHelper(coords,numInc,letterInc);
     		numInc = -1;
-    		spanHelper(coords,currentNum,currentLetter,numInc,letterInc);
+    		spanHelper(coords,numInc,letterInc);
     		letterInc = 1;
-    		spanHelper(coords,currentNum,currentLetter,numInc,letterInc);
+    		spanHelper(coords,numInc,letterInc);
     		return coords;
     	}
     	
-    	private void spanHelper(ArrayList<Coordinate coords,int currentNum,int currentLetter,int numInc,int letterInc) {
-    		Coordinate coord = new Coordinate(currentNum+numInc,currentLetter+letterInc);
+    	private void spanHelper(ArrayList<Coordinate coords,int numInc,int letterInc) {
+    		Coordinate coord = new Coordinate(super.getNum()+numInc,super.getLetter()+letterInc);
     		while (Board.isValid(coord)) {
     			coords.add(coord);
     			coord = (new Coordinate(coord.getNum()+numInc,coord.getLetter()+letterInc))
