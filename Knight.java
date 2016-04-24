@@ -22,8 +22,21 @@ public class Knight {
     
     public ArrayList<Coordinate> getMoveSpan() {
         ArrayList<Coordinate> coords = new ArrayList<Coordinate>();
-        //input all coords
+        int i = 2;
+        int k = 1;
+        for (int i = 0;i<4;i++) {
+            if (i % 2 == 1)
+                i *= -1;
+            else if (i == 2)
+                k *= -1;
+            spanHelper(coords,i,k);
+        }
         return coords;
+    }
+    
+    public void spanHelper(ArrayList<Coordinate> coords,int i, int k) {
+        coords.add(new Coordinate(super.getNum()+i,super.getLetter()+k);
+        coords.add(new Coordinate(super.getNum()+k,super.getLetter()+i);
     }
     
     public String toString() {
