@@ -195,11 +195,16 @@ public class ChessGame {
     
     public static boolean testCheck(Board board,Coordinate to, Coordinate from, Player player) { //Still needs to remove piece, and ignore the piece taken
 		Piece tempPiece = board.replace(from,to);
+		Player oppPlayer;
 		King king = player.getKing();
 		boolean inCheck = false;
+		if (player.getColor() == WHITE)
+			oppPlayer = getBlackPlayer();
+		else
+			oppPlayer = getWhitePlayer();
 		if (tempPiece != null)
 			player.removePiece(tempPiece);
-		if (king.isInCheck(board)) {
+		if (king.isInCheck(board,oppPlayer)) {
 		   inCheck = true;
 		}
 		board.getLocAt(from).setPiece(board.getLocAt(to).getPiece());
