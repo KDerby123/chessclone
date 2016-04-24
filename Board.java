@@ -31,7 +31,7 @@ public class Board {
 		return BOARD[num][letter].getPiece() == null;
 	}
 	
-	private static boolean isValid(Coordinate coord) {
+	private boolean isValid(Coordinate coord) {
 		int num = coord.getNum();
 		int letter = coord.getLetter();
 		return num <= RIGHT_BOUND && letter <= DOWN_BOUND && num >= LEFT_BOUND && letter >= UP_BOUND;
