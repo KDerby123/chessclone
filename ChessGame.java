@@ -189,14 +189,15 @@ public class ChessGame {
     public static boolean testCheck(Board board,Coordinate to, Coordinate from, Player player) { //Still needs to remove piece, and ignore the piece taken
 		Piece tempPiece = board.replace(to,from);
 		King king = player.getKing();
+		boolean inCheck = false;
 		player.removePiece(tempPiece);
 		if (king.isInCheck(board)) {
-		   board.getLocAt(from).setPiece(board.getLocAt(to).getPiece());
-		   board.getLocAt(to).setPiece(tempPiece);
-		   player.addPiece(tempPiece)
-		   return true;
+		   inCheck = true;
 		}
-		return false;
+		board.getLocAt(from).setPiece(board.getLocAt(to).getPiece());
+		board.getLocAt(to).setPiece(tempPiece);
+		player.addPiece(tempPiece);
+		return inCheck;
 	}
 	
 	public void promotePawn(Piece piece, String pieceName) {
