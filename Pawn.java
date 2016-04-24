@@ -18,7 +18,7 @@ public class Pawn extends Piece {
 	        Piece p = l.getPiece();
 	        int num = coord.getNum();
 	        int letter = coord.getLetter();
-		if (!super.notSameColor(p) || BOARD.isValid(coord))) //checks whether the piece is of the same color, A king check is not
+		if (!super.notSameColor(p)) //checks whether the piece is of the same color, A king check is not
 		   	return false; //needed due to the fact that this would be an instance of checkmate
 		else
 			if (p == null)  //if location is empty
