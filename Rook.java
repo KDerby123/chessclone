@@ -35,8 +35,21 @@ public class Rook extends Piece {
     	
     	public ArrayList<Coordinate> getMoveSpan() {
     		ArrayList<Coordinate> coords = new ArrayList<Coordinate>();
-    		//input all coords
+    		spanHelper(coords,1,0);
+    		spanHelper(coords,-1,0);
+    		spanHelper(coords,0,1);
+    		spanHelper(coords,0,-1);
     		return coords;
+    	}
+    	
+    	public void spanHelper(coords,int i, int k) {
+    		int numInc = i;
+    		int letterInc = k;
+    		Coordinate coord = new Coordinate(super.getNum()+numInc,super.getLetter()+letterInc);
+    		while (Board.isValid(coord)) {
+    			coords.add(coord);
+    			coord = new Coordinate(super.getNum()+numInc,super.getLetter()+letterInc);
+    		}
     	}
     
     public String toString() {
