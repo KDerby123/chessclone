@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Bishop extends Piece {
 	
@@ -6,15 +7,15 @@ public class Bishop extends Piece {
      	}
 	
 	@Override
-     	public boolean impededCheck(Board board, Coordinate coord) { //skeleton
+     	public boolean isImpeded(Board board, Coordinate coord) { //skeleton
      		int selNum = super.getNum();
      		int selLetter = super.getLetter();
      		int num = coord.getNum();
-     		int letter == coord.getLetter()
+     		int letter = coord.getLetter();
      		int numInc = Piece.genInc(selNum,num);
      		int letterInc = Piece.genInc(selLetter,letter);
-     		while ((selNum != num) && (selLetter != letter) {
-     			if (!board.isEmpty(selNum,selLetter))
+     		while ((selNum != num) && (selLetter != letter)) {
+     			if (!board.isEmpty(super.getCoord()))
      				return true;
      		}
      		return false;
@@ -22,18 +23,19 @@ public class Bishop extends Piece {
      
      	@Override
      	public boolean testMove(Board board, Coordinate coord) { //Moves diagonally and vertically
-        	Location loc = board.getLocAt(num,letter);
+        	Location loc = board.getLocAt(coord);
         	Piece p = loc.getPiece();
         	int num = coord.getNum();
         	int letter = coord.getLetter();
-        	if (!super.notSameColor(p))
+        	if (super.isSameColor(p))
         		return false;
        		double slope = (1.0 * Math.abs(super.getNum()-num))/Math.abs(super.getLetter()-letter);
        		if (slope == 1.0)
-       			return impededCheck(board,coord);
+       			return isImpeded(board,coord);
        		return false;
     	}
     	
+     	@Override
     	public ArrayList<Coordinate> getMoveSpan() {
     		ArrayList<Coordinate> coords = new ArrayList<Coordinate>();
     		spanHelper(coords,1,1);
@@ -43,15 +45,15 @@ public class Bishop extends Piece {
     		return coords;
     	}
     	
-    	private void spanHelper(ArrayList<Coordinate coords,int numInc,int letterInc) {
+    	private void spanHelper( ArrayList<Coordinate> coords,int numInc,int letterInc) {
     		Coordinate coord = new Coordinate(super.getNum()+numInc,super.getLetter()+letterInc);
     		while (Board.isValid(coord)) {
     			coords.add(coord);
-    			coord = (new Coordinate(coord.getNum()+numInc,coord.getLetter()+letterInc))
+    			coord = (new Coordinate(coord.getNum()+numInc,coord.getLetter()+letterInc));
     		}
     	}
     	
     	public String toString() {
-    		return "B" + Coordinate.notatedLoc(super.getCoordinate());
+    		return "B" + Coordinate.notatedPos(super.getCoord());
     	}
 }

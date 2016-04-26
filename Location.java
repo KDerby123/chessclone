@@ -14,9 +14,10 @@ public class Location {
 	 * @param letter
 	 *            the letter coordinate
 	 */
-	public Location(Piece piece, int num, int letter) {
+	public Location(Piece piece, int num, int letter, Color color) {
 		this.piece = piece;
 		this.coord = new Coordinate(num, letter);
+		this.color = color;
 	}
 
 	/**

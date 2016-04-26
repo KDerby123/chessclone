@@ -20,7 +20,7 @@ public class Player {
 		return moves;
 	}
 	
-	public void addMove(String move) //Adds a move to the player's list of moves
+	public void addMove(String move) { //Adds a move to the player's list of moves
 		moves.add(move);
 	}
 	
@@ -31,13 +31,15 @@ public class Player {
 	}
 	
 	public void removePiece(Piece p) {
-		for (int i = 0;i<pieces.size();i++)
-			if (p == piece)
-				pieces.remove(i);
+		pieces.remove(p);
 	}
 	
 	public void setColor(Color color) {
 		this.color = color;
+	}
+	
+	public Color getColor() {
+		return this.color;
 	}
 	
 	public void addPiece(Piece piece) {
@@ -46,5 +48,9 @@ public class Player {
 	
 	public void setKing(King king) {
 		this.king = king;
+	}
+
+	public King getKing() {
+		return this.king;
 	}
 }

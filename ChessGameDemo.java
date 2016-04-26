@@ -34,9 +34,9 @@ public class ChessGameDemo extends JFrame implements MouseListener, MouseMotionL
  
   int row = (i / 8) % 2;
   if (row == 0)
-  square.setBackground( i % 2 == 0 ? Color.blue : Color.white );
+  square.setBackground( i % 2 == 0 ? java.awt.Color.blue : java.awt.Color.white );
   else
-  square.setBackground( i % 2 == 0 ? Color.white : Color.blue );
+  square.setBackground( i % 2 == 0 ? java.awt.Color.white : java.awt.Color.blue );
   }
  
   //Add a few pieces to the board
