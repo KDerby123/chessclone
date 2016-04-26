@@ -53,4 +53,12 @@ public class Player {
 	public King getKing() {
 		return this.king;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }

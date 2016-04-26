@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class King extends Piece {
 
@@ -33,6 +34,7 @@ public class King extends Piece {
 		}
 		return player.getKing().testMove(board,super.getCoord());
 	}
+	
 	
 	public ArrayList<Coordinate> getMoveSpan() {
     		ArrayList<Coordinate> coords = new ArrayList<Coordinate>();
